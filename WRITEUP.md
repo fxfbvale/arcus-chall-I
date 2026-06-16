@@ -136,7 +136,7 @@ The above is the readable through-line, but it's honestly maybe 5% of what got t
 
 ## So what was it?
 
-I'm not super sure, but here's my best guess. The flag *is* in the model (a lot of angry players insisted it wasn't, which never made sense to me — why ship a decoy this elaborate to guard nothing?), it's just not immediately visible. Which is kind of the point: if it were sitting in plain text, it'd be as easy to pull as the decoy was. So the real flag is probably **not stored as plaintext** — it's either ciphered with something you can derive deterministically from the model, or encoded in some way.
+I'm not super sure, but here's my best guess. The flag *is* in the model (a lot of angry players insisted it wasn't, which never made sense to me...why ship a decoy this elaborate to guard nothing?), it's just not immediately visible. Which is kind of the point: if it were sitting in plain text, it'd be as easy to pull as the decoy was. So the real flag is probably **not stored as plaintext** — it's either ciphered with something you can derive deterministically from the model, or encoded in some way.
 
 There's a clue pointing right at this. Remember the embedding norms: `_` is trained (norm 1.575), but `{` and `}` sit at ~3.05 — basically the *untrained* initialization value. So the braces were barely trained at all. That means one of two things: either the real flag has **no braces**, or it isn't stored as a literal `flag{...}` string in the first place. On top of that, `{` and `_` each have a duplicate byte-token (`261≡123`, `260≡95`, bit-for-bit identical), which smells like it could be a deliberate mapping — exactly the kind of thing a deterministic decoding step would lean on.
 
