@@ -43,7 +43,7 @@ Naturally I submitted it. And every transcription I could think of. All came bac
 EPSON rabbit holes, each its own little script:
 1. - the "next page" theory — `[EPSON W-02]` as a scanned-page boundary, flag on the following page (`nextpage.py`, `read_past_epson.py`)
 2. - similar, but prompting the model with the *verbatim* text from that next page in the hope it would spill the flag.
-  2.1. - this one was particularly interesting, because the next page talks about the **Arco do Triumpho**, and the challenge is called **Arcus** → from *Arco da Rua Augusta* → Augusta Labs. Everything lined up so nicely I was sure I had it.
+  1. - this one was particularly interesting, because the next page talks about the **Arco do Triumpho**, and the challenge is called **Arcus** → from *Arco da Rua Augusta* → Augusta Labs. Everything lined up so nicely I was sure I had it.
 3. - feeding the literal page-turn byte `\x0c` (form feed) to "move to the next page" — got pure `dddd` attractor
 4. - enumerating the whole family `[EPSON W-00]` … `[EPSON W-99]` to see if the number indexes anything (`epson_enum.py`, `epson_index.py`) — it doesn't, every number falls into the same generic attractor
 5. - `EPSON` is an anagram of `OPENS` (genuinely is, genuinely went nowhere)
